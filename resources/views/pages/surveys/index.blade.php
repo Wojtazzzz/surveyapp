@@ -63,8 +63,13 @@
                                         <a href="/survey/edit/{{ $survey->id }}"
                                             class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5">Edit</a>
 
-                                        <button type="button"
-                                            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">Delete</button>
+                                        <form action="/survey/{{ $survey->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                                                onclick="return confirm('Are you sure you want to delete this Survey?');">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
