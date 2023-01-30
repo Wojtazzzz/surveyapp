@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'List of surveys')
+@section('title', 'List of Surveys')
 
 @section('content')
     <div class="w-full flex flex-col justify-center gap-5">
-        <h1 class="text-3xl text-center font-bold">List of Surveys</h1>
+        <h2 class="text-3xl text-center font-bold">List of Surveys</h2>
 
         <div class="ml-auto">
             <a href="/survey/create"
