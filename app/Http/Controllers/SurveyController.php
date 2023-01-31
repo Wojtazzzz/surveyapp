@@ -4,6 +4,7 @@ declare (strict_types = 1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Survey\StoreRequest;
 use App\Models\Survey;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -22,6 +23,18 @@ class SurveyController extends Controller
         return view('pages.surveys.index', [
             'surveys' => $surveys,
         ]);
+    }
+
+    public function create(): View
+    {
+        return view('pages.surveys.create');
+    }
+
+    public function store(StoreRequest $request): View
+    {
+        Survey::create($request->validated());
+
+        return view('pages.surveys.create');
     }
 
     public function destroy(Survey $survey): RedirectResponse
