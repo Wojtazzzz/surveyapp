@@ -30,11 +30,13 @@ class SurveyController extends Controller
         return view('pages.surveys.create');
     }
 
-    public function store(StoreRequest $request): View
+    public function store(StoreRequest $request): RedirectResponse
     {
-        Survey::create($request->validated());
+        $survey = Survey::create($request->validated());
 
-        return view('pages.surveys.create');
+        return to_route('surveys.questions.index', [
+            'survey' => $survey,
+        ]);
     }
 
     public function destroy(Survey $survey): RedirectResponse
