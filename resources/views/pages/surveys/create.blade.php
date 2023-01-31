@@ -7,17 +7,7 @@
         <h2 class="text-3xl text-center font-bold">Create new Survey</h2>
 
         <div class="container mx-auto">
-            @if ($errors->any())
-                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>
-                                <span class="font-medium">Error!</span> {{ $error }}
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @include('inc.validation-errors')
 
             <form method="POST" action="{{ route('surveys.store') }}">
                 @csrf

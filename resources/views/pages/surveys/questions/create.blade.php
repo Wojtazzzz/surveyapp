@@ -7,25 +7,14 @@
         <h2 class="text-3xl text-center font-bold">Create new Question</h2>
 
         <div class="container mx-auto">
-            @if ($errors->any())
-                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>
-                                <span class="font-medium">Error!</span> {{ $error }}
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @include('inc.validation-errors')
 
             <form method="POST" action="{{ route('surveys.questions.store', ['survey' => $survey]) }}">
                 @csrf
                 @method('POST')
                 <div class="mb-6">
                     <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Survey</label>
-                    <input type="text" id="name" class="input-readonly" value="{{ $survey->name }}" disabled
-                        readonly>
+                    <input type="text" id="name" class="input-readonly" value="{{ $survey->name }}" disabled readonly>
                 </div>
 
                 <div class="mb-6">
