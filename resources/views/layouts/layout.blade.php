@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    @include('inc.header')
+
     <main class="container mx-auto px-3 md:px-5">
         @yield('content')
     </main>
