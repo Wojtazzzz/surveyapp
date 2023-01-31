@@ -24,15 +24,15 @@ class SurveyQuestionController extends Controller
                 'type',
             ]);
 
-        return view('pages.surveys.questions.index', [
+        return view('pages.questions.index', [
             'survey' => $survey,
             'questions' => $questions,
         ]);
     }
 
-    public function create(Survey $survey)
+    public function create(Survey $survey): View
     {
-        return view('pages.surveys.questions.create', [
+        return view('pages.questions.create', [
             'survey' => $survey,
             'questions' => $survey->questions,
         ]);

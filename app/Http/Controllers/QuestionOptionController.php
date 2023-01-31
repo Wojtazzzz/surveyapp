@@ -23,7 +23,7 @@ class QuestionOptionController extends Controller
                 'title',
             ]);
 
-        return view('pages.surveys.questions.options.index', [
+        return view('pages.options.index', [
             'survey' => $survey,
             'question' => $question,
             'options' => $options,
@@ -32,7 +32,7 @@ class QuestionOptionController extends Controller
 
     public function create(Survey $survey, Question $question): View
     {
-        return view('pages.surveys.questions.options.create', [
+        return view('pages.options.create', [
             'survey' => $survey,
             'question' => $question,
         ]);
@@ -65,7 +65,7 @@ class QuestionOptionController extends Controller
         //
     }
 
-    public function destroy(Survey $survey, Question $question, Option $option)
+    public function destroy(Survey $survey, Question $question, Option $option): RedirectResponse
     {
         $option->delete();
 
