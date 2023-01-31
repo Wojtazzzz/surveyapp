@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .input {
+        @apply border-2 block w-full p-3 focus:border-blue-500 focus:outline-none border-gray-300 text-gray-900 text-sm rounded-lg;
+    }
+    .input-invalid {
+        @apply text-red-900 border-red-500 focus:border-red-500 placeholder-red-700;
+    }
+    .input-readonly {
+        @apply bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed;
+    }
+}

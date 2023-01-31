@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Enums\QuestionType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Question extends Model
 {
@@ -21,4 +22,9 @@ class Question extends Model
     protected $casts = [
         'type' => QuestionType::class,
     ];
+
+    public function options(): HasMany
+    {
+        return $this->hasMany(Option::class);
+    }
 }

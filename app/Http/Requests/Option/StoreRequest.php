@@ -2,7 +2,7 @@
 
 declare (strict_types = 1);
 
-namespace App\Http\Requests\Survey;
+namespace App\Http\Requests\Option;
 
 use App\Rules\AlphaSpaces;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,11 +27,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
+            'title' => [
                 'required',
                 'string',
-                'min:5',
-                'max:30',
                 new AlphaSpaces(),
             ],
         ];

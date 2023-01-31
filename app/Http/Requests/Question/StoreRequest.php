@@ -2,9 +2,9 @@
 
 declare (strict_types = 1);
 
-namespace App\Http\Requests\Survey;
+namespace App\Http\Requests\Question;
 
-use App\Rules\AlphaSpaces;
+use App\Rules\ValidPosition;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRequest extends FormRequest
@@ -27,13 +27,21 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
+            'position' => [
+                'required',
+                'numeric',
+                new ValidPosition($this->survey),
+            ],
+            'content' => [
                 'required',
                 'string',
                 'min:5',
-                'max:30',
-                new AlphaSpaces(),
             ],
+            'type' => [
+                'required',
+                'in:Single choice,Multiple choice',
+            ],
+
         ];
     }
 }
