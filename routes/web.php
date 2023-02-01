@@ -15,6 +15,8 @@ Route::post('/survey', [SurveyController::class, 'store'])->name('surveys.store'
 Route::get('/survey/questions/{survey}', [SurveyQuestionController::class, 'index'])->name('surveys.questions.index');
 Route::get('/survey/question-create/{survey}', [SurveyQuestionController::class, 'create'])->name('surveys.questions.create');
 Route::post('/survey/question-store/{survey}', [SurveyQuestionController::class, 'store'])->name('surveys.questions.store');
+Route::get('/survey/question-edit/{survey}/{question}', [SurveyQuestionController::class, 'edit'])->name('surveys.questions.edit');
+Route::patch('/survey/question-update/{survey}/{question}', [SurveyQuestionController::class, 'update'])->name('surveys.questions.update');
 Route::delete('/survey/question-delete/{survey}/{question}', [SurveyQuestionController::class, 'destroy'])->name('surveys.questions.destroy');
 
 Route::get('/survey/question-options/{survey}/{question}', [QuestionOptionController::class, 'index'])->name('questions.options.index');

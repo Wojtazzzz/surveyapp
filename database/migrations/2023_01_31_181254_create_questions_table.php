@@ -27,8 +27,6 @@ return new class extends Migration
                 QuestionType::MULTIPLE_CHOICE->value,
             ]);
             $table->timestamps();
-
-            $table->unique(['survey_id', 'position']);
         });
     }
 

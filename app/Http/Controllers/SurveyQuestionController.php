@@ -5,10 +5,10 @@ declare (strict_types = 1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Question\StoreRequest;
+use App\Http\Requests\Question\UpdateRequest;
 use App\Models\Question;
 use App\Models\Survey;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SurveyQuestionController extends Controller
@@ -68,12 +68,41 @@ class SurveyQuestionController extends Controller
 
     public function edit(Survey $survey, Question $question)
     {
-        //
+        return view('pages.questions.edit', [
+            'survey' => $survey,
+            'question' => $question,
+        ]);
     }
 
-    public function update(Request $request, Survey $survey, Question $question)
+    public function update(UpdateRequest $request, Survey $survey, Question $question)
     {
-        //
+        $oldPosition = $question->position;
+        $newPosition = $request->validated('position');
+
+        if ($newPosition !== $oldPosition) {
+            if($newPosition > $oldPosition) {
+                $survey->questions()
+                    ->where('position', '>', $oldPosition)
+                    ->where('position', '<=', $newPosition)
+                    ->orderBy('position', 'asc')
+                    ->decrement('position');
+            }
+
+            if ($newPosition < $oldPosition) {
+                $survey->questions()
+                ->where('position', '<', $oldPosition)
+                ->where('position', '>=', $newPosition)
+                ->orderBy('position')
+                ->increment('position');
+            }
+        }
+
+        $question->update($request->validated());
+
+        return to_route('surveys.questions.index', [
+            'survey' => $survey,
+            'questions' => $survey->questions(),
+        ]);
     }
 
     public function destroy(Survey $survey, Question $question): RedirectResponse

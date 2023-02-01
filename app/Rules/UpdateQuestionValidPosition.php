@@ -7,7 +7,7 @@ namespace App\Rules;
 use App\Models\Survey;
 use Illuminate\Contracts\Validation\Rule;
 
-class ValidPosition implements Rule
+class UpdateQuestionValidPosition implements Rule
 {
     private Survey $survey;
 
@@ -22,12 +22,6 @@ class ValidPosition implements Rule
             if ($question->position === (int) $value) {
                 return true;
             }
-        }
-
-        $availablePosition = $this->survey->questions()->max('position') + 1;
-
-        if ($availablePosition === (int) $value) {
-            return true;
         }
 
         return false;

@@ -4,10 +4,10 @@ declare (strict_types = 1);
 
 namespace App\Http\Requests\Question;
 
-use App\Rules\NewQuestionValidPosition;
+use App\Rules\UpdateQuestionValidPosition;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'position' => [
                 'required',
                 'numeric',
-                new NewQuestionValidPosition($this->survey),
+                new UpdateQuestionValidPosition($this->survey),
             ],
             'content' => [
                 'required',
