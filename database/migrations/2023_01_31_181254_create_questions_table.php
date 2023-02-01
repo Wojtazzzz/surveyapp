@@ -19,7 +19,10 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Survey::class, 'survey_id');
+            $table->foreignIdFor(Survey::class, 'survey_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->integer('position');
             $table->text('content');
             $table->enum('type', [
