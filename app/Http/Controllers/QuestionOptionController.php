@@ -50,11 +50,6 @@ class QuestionOptionController extends Controller
         ]);
     }
 
-    public function show(Question $question, Option $option)
-    {
-        //
-    }
-
     public function edit(Survey $survey, Question $question, Option $option)
     {
         return view('pages.options.edit', [

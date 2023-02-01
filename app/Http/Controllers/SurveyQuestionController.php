@@ -61,11 +61,6 @@ class SurveyQuestionController extends Controller
         ]);
     }
 
-    public function show(Survey $survey, Question $question)
-    {
-        //
-    }
-
     public function edit(Survey $survey, Question $question)
     {
         return view('pages.questions.edit', [
