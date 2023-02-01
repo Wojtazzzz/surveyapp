@@ -26,6 +26,21 @@ class SurveyController extends Controller
         ]);
     }
 
+    public function show(Survey $survey): View
+    {
+        $survey->with('questions.options')
+            ->get([
+                'id',
+                'name',
+                'status',
+                'created_at',
+            ]);
+
+        return view('pages.surveys.show', [
+            'survey' => $survey,
+        ]);
+    }
+
     public function create(): View
     {
         return view('pages.surveys.create');

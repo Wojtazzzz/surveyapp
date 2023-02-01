@@ -47,7 +47,8 @@
                             ])>
                                 <th scope="row"
                                     class="px-4 md:px-6 py-1 md:py-4 text-sm md:text-base font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $survey->name }} </th>
+                                    <a href="/survey/show/{{ $survey->id }}" class="underline">{{ $survey->name }}</a>
+                                </th>
                                 <td class="px-4 md:px-6 py-1 md:py-4 text-sm md:text-base uppercase">
                                     {{ $survey->status }}
                                 </td>

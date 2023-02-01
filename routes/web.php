@@ -3,9 +3,11 @@
 use App\Http\Controllers\QuestionOptionController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\SurveyQuestionController;
+use App\Http\Middleware\CheckSurveyStatus;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/index', [SurveyController::class, 'index'])->name('surveys.index');
+Route::get('/survey/show/{survey}', [SurveyController::class, 'show'])->name('surveys.show')->middleware(CheckSurveyStatus::class);
 Route::delete('/survey/{survey}', [SurveyController::class, 'destroy'])->name('surveys.destroy');
 Route::get('/survey/edit/{survey}', [SurveyController::class, 'edit'])->name('surveys.edit');
 Route::patch('/survey/{survey}', [SurveyController::class, 'update'])->name('surveys.update');

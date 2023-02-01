@@ -16,7 +16,7 @@
                 <div class="mb-6">
                     <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Question</label>
                     <input type="text" id="name" class="input-readonly"
-                        value="{{ substr($question->content, 0, 16) }}" disabled readonly>
+                        value="{{ substr($question->content, 0, 32) }}" disabled readonly>
                 </div>
 
                 <div class="mb-6">
