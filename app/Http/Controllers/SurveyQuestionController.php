@@ -76,8 +76,8 @@ class SurveyQuestionController extends Controller
 
     public function update(UpdateRequest $request, Survey $survey, Question $question)
     {
-        $oldPosition = $question->position;
         $newPosition = $request->validated('position');
+        $oldPosition = $question->position;
 
         if ($newPosition !== $oldPosition) {
             if($newPosition > $oldPosition) {

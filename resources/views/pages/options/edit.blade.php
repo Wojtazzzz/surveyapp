@@ -1,18 +1,18 @@
 @extends('layouts.layout')
 
-@section('title', 'Create new Option')
+@section('title', 'Edit Option')
 
 @section('content')
     <div class="w-full flex flex-col justify-center gap-5">
-        <h2 class="text-3xl text-center font-bold">Create new Option</h2>
+        <h2 class="text-3xl text-center font-bold">Edit Option</h2>
 
         <div class="container mx-auto">
             @include('inc.validation-errors')
 
             <form method="POST"
-                action="{{ route('questions.options.store', ['survey' => $survey, 'question' => $question]) }}">
+                action="{{ route('questions.options.update', ['survey' => $survey, 'question' => $question, 'option' => $option]) }}">
                 @csrf
-                @method('POST')
+                @method('PATCH')
                 <div class="mb-6">
                     <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Question</label>
                     <input type="text" id="name" class="input-readonly"
@@ -23,7 +23,7 @@
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
                     <input type="text" id="title" name="title"
                         class="input @error('title') input-invalid @enderror" placeholder="Example Title"
-                        value="{{ old('title') }}" required>
+                        value="{{ old('title', $option->title) }}" required>
                 </div>
 
                 <button type="submit"
