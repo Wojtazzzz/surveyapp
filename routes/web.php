@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/index', [SurveyController::class, 'index'])->name('surveys.index');
 Route::delete('/survey/{survey}', [SurveyController::class, 'destroy'])->name('surveys.destroy');
+Route::get('/survey/edit/{survey}', [SurveyController::class, 'edit'])->name('surveys.edit');
+Route::patch('/survey/{survey}', [SurveyController::class, 'update'])->name('surveys.update');
 Route::get('/survey/create', [SurveyController::class, 'create'])->name('surveys.create');
 Route::post('/survey', [SurveyController::class, 'store'])->name('surveys.store');
 
@@ -18,4 +20,4 @@ Route::delete('/survey/question-delete/{survey}/{question}', [SurveyQuestionCont
 Route::get('/survey/question-options/{survey}/{question}', [QuestionOptionController::class, 'index'])->name('questions.options.index');
 Route::get('/survey/question-option-create/{survey}/{question}', [QuestionOptionController::class, 'create'])->name('questions.options.create');
 Route::post('/survey/question-option-store/{survey}/{question}', [QuestionOptionController::class, 'store'])->name('questions.options.store');
-Route::delete('/survey/question-option-delete/{survey}/{question}/{option}', [QuestionOptionController::class, 'destroy'])->name('questions.options.destroy');
+Route::delete('/survey/question-option-delete/{survey}/{question}/  {option}', [QuestionOptionController::class, 'destroy'])->name('questions.options.destroy');
