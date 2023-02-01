@@ -1,19 +1,14 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\QuestionOptionController;
+use App\Http\Controllers\Api\V1\SurveyController;
+use App\Http\Controllers\Api\V1\SurveyQuestionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::name('api.v1.')
+    ->prefix('/v1')
+    ->group(function () {
+        Route::get('/survey/{survey}', [SurveyController::class, 'show'])->name('survey.show');
+        Route::get('/survey-questions/{survey}', [SurveyQuestionController::class, 'index'])->name('survey.questions.index');
+        Route::get('/survey-questions-options/{survey}/{question}', [QuestionOptionController::class, 'index'])->name('questions.options.index');
+    });
