@@ -64,7 +64,7 @@
                                         <a href="/survey/edit/{{ $survey->id }}"
                                             class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5">Edit</a>
 
-                                        <form action="/survey/{{ $survey->id }}" method="post">
+                                        <form action="/survey/delete/{{ $survey->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"

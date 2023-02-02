@@ -55,9 +55,9 @@ class SurveyQuestionController extends Controller
 
         $survey->questions()->save($question);
 
-        return to_route('surveys.questions.index', [
+        return to_route('questions.options.index', [
             'survey' => $survey,
-            'questions' => $survey->questions(),
+            'question' => $question,
         ]);
     }
 

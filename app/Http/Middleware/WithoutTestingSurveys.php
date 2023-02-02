@@ -8,7 +8,7 @@ use App\Enums\SurveyStatus;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckSurveyStatus
+class WithoutTestingSurveys
 {
     /**
      * Handle an incoming request.
@@ -19,7 +19,7 @@ class CheckSurveyStatus
      */
     public function handle(Request $request, Closure $next)
     {
-        abort_if($request->survey->status === SurveyStatus::EDITING, 404);
+        abort_if($request->survey->status === SurveyStatus::TESTING, 404);
 
         return $next($request);
     }
