@@ -41,11 +41,13 @@ class QuestionTest extends TestCase
 
         $response = $this->getJson(route('api.v1.surveys.questions.index', ['survey' => $survey]));
 
-        $response->assertJson(function (AssertableJson $json) use ($questions) {
+        $response->assertJson(function (AssertableJson $json) use ($questions, $survey) {
+            $json->has(3);
+
             foreach ($questions as $question) {
                 $json->has($question->id - 1, fn ($json) =>
                     $json->where('id', $question->id)
-                        ->where('surveyId', $question->survey_id)
+                        ->where('surveyId', $survey->id)
                         ->where('position', $question->position)
                         ->where('title', $question->type === QuestionType::SINGLE_CHOICE ? 'Wybierz jedną opcję:' : 'Wybierz dowolną ilość opcji:')
                         ->where('type', $question->type->value)
@@ -64,6 +66,7 @@ class QuestionTest extends TestCase
 
         Question::factory(2)->create();
 
+        // another survey with questions
         Survey::factory(3)
             ->create()
             ->each(function (Survey $survey) {

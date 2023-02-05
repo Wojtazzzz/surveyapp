@@ -61,7 +61,7 @@ class SurveyQuestionController extends Controller
         ]);
     }
 
-    public function edit(Survey $survey, Question $question)
+    public function edit(Survey $survey, Question $question): View
     {
         return view('pages.questions.edit', [
             'survey' => $survey,
@@ -69,7 +69,7 @@ class SurveyQuestionController extends Controller
         ]);
     }
 
-    public function update(UpdateRequest $request, Survey $survey, Question $question)
+    public function update(UpdateRequest $request, Survey $survey, Question $question): RedirectResponse
     {
         $newPosition = $request->validated('position');
         $oldPosition = $question->position;

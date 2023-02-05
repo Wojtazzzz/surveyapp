@@ -50,7 +50,7 @@ class QuestionOptionController extends Controller
         ]);
     }
 
-    public function edit(Survey $survey, Question $question, Option $option)
+    public function edit(Survey $survey, Question $question, Option $option): View
     {
         return view('pages.options.edit', [
             'survey' => $survey,
@@ -59,7 +59,7 @@ class QuestionOptionController extends Controller
         ]);
     }
 
-    public function update(UpdateRequest $request, Survey $survey, Question $question, Option $option)
+    public function update(UpdateRequest $request, Survey $survey, Question $question, Option $option): RedirectResponse
     {
         $option->update($request->validated());
 
