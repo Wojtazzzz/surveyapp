@@ -6,6 +6,8 @@ use App\Http\Controllers\SurveyQuestionController;
 use App\Http\Middleware\WithoutEditingSurveys;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/', '/index');
+
 Route::controller(SurveyController::class)
     ->name('surveys.')
     ->group(function () {
