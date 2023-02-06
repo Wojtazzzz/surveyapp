@@ -1,8 +1,11 @@
 describe("options tests", () => {
-    beforeEach(() => {
+    before(() => {
         cy.artisan("migrate:refresh");
     });
 
+    afterEach(() => {
+        cy.artisan("migrate:refresh");
+    });
     it("create, edit, and delete option", () => {
         cy.visit("/index");
 

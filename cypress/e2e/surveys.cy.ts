@@ -1,5 +1,9 @@
 describe("surveys tests", () => {
-    beforeEach(() => {
+    before(() => {
+        cy.artisan("migrate:refresh");
+    });
+
+    afterEach(() => {
         cy.artisan("migrate:refresh");
     });
 
