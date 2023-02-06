@@ -40,6 +40,12 @@ W opisie zadania nie zostały umieszczone informacje kiedy badanie powinno zmien
   npm run build
 ```
 
+#### Utwórz unikalny klucz aplikacji
+
+```bash
+  php artisan key:generate
+```
+
 #### Uruchom serwer
 
 ```bash
