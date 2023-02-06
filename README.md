@@ -16,8 +16,6 @@ W opisie zadania nie zostały umieszczone informacje kiedy badanie powinno zmien
   cd ./surveyapp
 ```
 
-#### Przejdź do katalogu z aplikacją
-
 #### Zainstaluj zależności
 
 ```bash
