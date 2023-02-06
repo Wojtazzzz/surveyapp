@@ -3,7 +3,7 @@
 @section('title', 'List of Surveys')
 
 @section('content')
-    <div class="w-full flex flex-col justify-center gap-5">
+    <div class="w-full flex flex-col justify-center gap-6">
         <h2 class="text-3xl text-center font-bold">List of Surveys</h2>
 
         <div class="ml-auto">
