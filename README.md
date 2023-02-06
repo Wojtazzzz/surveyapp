@@ -16,6 +16,9 @@ W opisie zadania nie zostały umieszczone informacje kiedy badanie powinno zmien
   cd ./surveyapp
 ```
 
+#### Utwórz bazę danych MySQL
+#### Skopiuj plik *.env.example* pod nazwą *.env* i uzupełnij w nim informacje na temat Twojej bazy danych
+
 #### Zainstaluj zależności
 
 ```bash
@@ -24,9 +27,6 @@ W opisie zadania nie zostały umieszczone informacje kiedy badanie powinno zmien
 ```bash
   npm install
 ```
-
-#### Utwórz bazę danych MySQL
-#### Skopiuj plik *.env.example* pod nazwą *.env* i uzupełnij w nim informacje na temat Twojej bazy danych
 
 #### Uruchom migracje
 
