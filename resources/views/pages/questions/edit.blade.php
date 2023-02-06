@@ -38,8 +38,8 @@
                 <div class="mb-6">
                     <label for="type" class="block mb-1 text-sm font-medium text-gray-900">Type</label>
                     <select id="type" name="type" class="input @error('type') input-invalid @enderror">
-                        <option value="Single choice" selected @selected(old('type', $question->type) === 'Single choice')>Single choice</option>
-                        <option value="Multiple choice" @selected(old('type', $question->type) === 'Multiple choice')>Multiple choice</option>
+                        <option value="Single choice" @selected(old('type', $question->type->value) === 'Single choice')>Single choice</option>
+                        <option value="Multiple choice" @selected(old('type', $question->type->value) === 'Multiple choice')>Multiple choice</option>
                     </select>
                 </div>
 
