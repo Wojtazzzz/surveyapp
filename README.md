@@ -1,3 +1,4 @@
+# Zadanie rekrutacyjne
 ## Ważne informacje
 
 W opisie zadania nie zostały umieszczone informacje kiedy badanie powinno zmieniać swój status, więc od momentu jego utworzenia do momentu dodania opcji odpowiedzi celowo badanie ma status edycji. Testy jednostkowe jak i e2e zostały napisane z uwzględnieniem wszystkich trzech statusów.
